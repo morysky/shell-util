@@ -15,7 +15,7 @@ function green() {
 }
 
 function usage() {
-    green "usage: building distributed table sql file [-t sql_template_filename] [-s total_size] [-c chunk_size] [-o sql-output-file]\nPlaceholder is [$GENESIS_INDEX]"
+    green "usage: building distributed table sql file [-t sql_template_filename] [-s total_size] [-c chunk_size] [-o sql-output-file]\nplaceholder is [$GENESIS_INDEX]\n-t in.sql -s 1024 -c 50"
 }
 
 while {getopts t:s:c:o:vh arg} {
