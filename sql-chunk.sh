@@ -61,17 +61,19 @@ if [ X = "X"$SIZE ]; then
 fi
 
 if [ X = "X"$CHUNK ]; then
-    SIZE=`expr 50`
+    CHUNK=`expr 50`
 fi
 
 if [ X = "X"$OUTPUT ]; then
-    OUTPUT="auto-build-sql.output"
+    OUTPUT="auto-build-output"
 fi
 
 yellow "sql:[$TEMPLATE] size:[$SIZE] chunk:[$CHUNK] output:[$OUTPUT]"
 
-rm -rf $OUTPUT
-
 for ((i=0; i < $SIZE; i++)) {
-    sed "s/$GENESIS_INDEX/$i/g" $TEMPLATE >> $OUTPUT
+    FILE_INDEX=`expr $i / $CHUNK`
+    FILE_NAME="$OUTPUT-$FILE_INDEX.sql"
+
+    sed "s/$GENESIS_INDEX/$i/g" $TEMPLATE >> $FILE_NAME
+    echo "\n" >> $FILE_NAME
 }

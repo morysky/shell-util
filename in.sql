@@ -1,0 +1,3 @@
+CREATE TABLE `foo_GENESIS_INDEX` (
+    `id` bigint(20) unsigned NOT NULL DEFAULT 0 COMMENT 'Primary Key',
+) ENGINE = InnoDB AUTO_INCREMENT = 1;
